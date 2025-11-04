@@ -1,0 +1,80 @@
+\input{tpl_inc.tex}
+
+\begin{document}
+
+\ptitle{I}{Rectangular Pool}
+
+You are the owner of a land that can be represented as a grid $G$ of size $N \times M$, with rows numbered from $1$ to $N$, and columns numbered from $1$ to $M$.
+Define $G_{i, j}$ as the cell of the grid on the row $i$ and column $j$.
+Each cell of $G$ has either of the following terrains: puddle represented as \texttt{.} and dirt represented as \texttt{\#}.
+A connected component of puddles are defined as a \textbf{pool}.
+A connected component is a set of cells such that any two cells in the set are connected by traversing between cells that share a side.
+
+Your land is very bizarre that, for the next $Q$ days, exactly one cell will change its type.
+Formally, suppose cell at row $R$ and column $C$ change its type.
+If the cell $G_{R, C}$ is a puddle, it will transform into dirt; if the cell is dirt, it will transform into a puddle.
+
+You have an abnormal obsession to rectangles, so you will get sick if a pool is not rectangular.
+A rectangular pool is defined as follows: let $r_{min}$, $r_{max}$, $c_{min}$, and $c_{max}$ as the minimum row number, maximum row number, minimum column number, and maximum column number of all puddles in the pool respectively, then there are exactly $(r_{max} - r_{min} + 1) \times (c_{max} - c_{min} + 1)$ puddles in the pool.
+
+At the end of each day, determine if there exists any non-rectangular pool in your land!
+
+\psection{Input}
+
+The first line contains two integers $N$ and $M$ ($1 \le N \le M \le 1000$).
+Each of the next $N$ lines contains $M$ characters of either $\texttt{.}$ or $\texttt{\#}$, where the character at $i$-th row and $j$-th column represents the type of cell $G_{i, j}$.
+
+The next line contains an integer $Q$ ($1 \le Q \le 300\,000$).
+Each of the next $Q$ lines contains two integers $R$ and $C$ ($1 \le R \le N$; $1 \le C \le M$) meaning that the cell $G_{R, C}$ change its type.
+
+\psection{Output}
+
+Output $Q$ lines representing the existence of non-rectangle pool at the end of each day. Each of the lines contains either $\texttt{RECTANGLES}$ if all pools are rectangular, or $\texttt{NO}$ if there exists a non-rectangular pool.
+
+\exmp{1}{
+5 5\\
+\#...\#\\
+\#...\#\\
+\#\#\#\#\#\\
+\#...\#\\
+\#\#\#\#\#\\
+3\\
+4 3\\
+1 3\\
+2 3
+}{
+RECTANGLES\\
+NO\\
+RECTANGLES
+}
+
+\pagebreak
+
+\textit{Explanation of Sample 1:} The following are the states of the land after each day:
+
+\begin{verbatim}
+#...#   #.#.#   #.#.#
+#...#   #...#   #.#.#
+#####   #####   #####
+#.#.#   #.#.#   #.#.#  
+#####   #####   #####
+\end{verbatim}
+
+After the first day, all three pools are rectangular pools.
+After the second day, the pool formed by cells $(1, 2)$, $(1, 4)$, $(2, 2)$, $(2, 3)$, $(2, 4)$ is not rectangular.
+All pools are rectangular again after the third day.
+
+\exmp{2}{
+3 4\\
+\#\#\#\#\\
+\#.\#\#\\
+\#\#\#\#\\
+1\\
+2 2
+}{
+RECTANGLES
+}
+
+% \blankpage % use this if problem is only 1 page
+
+\end{document}

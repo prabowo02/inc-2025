@@ -1,0 +1,71 @@
+\documentclass[10pt]{article}
+\usepackage[margin=1in,top=1.75in,bottom=1in,headheight=85pt]{geometry}
+
+% font
+\usepackage{tgheros}
+\renewcommand*\familydefault{\sfdefault}
+\usepackage[T1]{fontenc}
+
+\usepackage{letltxmacro}
+\LetLtxMacro\oldttfamily\ttfamily
+\DeclareRobustCommand{\ttfamily}{\oldttfamily\csname ttsize\endcsname}
+\newcommand{\setttsize}[1]{\def\ttsize{#1}}%
+
+% line-spacing
+\renewcommand{\baselinestretch}{1.1}
+
+\usepackage{amsmath,amsthm,amssymb,graphicx,array}
+\usepackage{tabularx}
+\usepackage{verbatim,listings}
+\usepackage{mdframed}
+\usepackage{fancyvrb}
+\usepackage{blindtext}
+
+% header and footer
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\chead{\includegraphics[width=0.75\paperwidth,height=66pt]{header-inc.jpg}}
+\lfoot{ICPC INC 2025}
+\renewcommand{\headrulewidth}{0.75pt}
+\renewcommand{\footrulewidth}{0.75pt}
+
+% no page number
+\pagenumbering{gobble}
+
+% no indent on new paragraph
+\setlength\parindent{0mm}
+\setlength{\parskip}{2mm}
+
+% commands
+\newcommand{\ptitle}[2]{%
+\rfoot{Problem #1. #2}
+\section*{\centering {Problem #1}\\\vspace{2mm}{\LARGE #2}\vspace{5mm}}}
+
+\newcommand{\psection}[1]{\vspace{-3mm}\subsubsection*{#1}\vspace{-3mm}}
+
+\newcommand{\blankpage}{\newpage\vspace*{\fill}{\centering {\em This page is intentionally left blank.}\par}\vspace*{\fill}}
+
+% Define the \exmp command that works within example environment
+\newcommand{\exmp}[3]{%
+    \vspace{2mm}
+    \begin{tabular}{|p{0.47\textwidth}|p{0.47\textwidth}|}
+    \multicolumn{1}{l}{\textbf{Sample Input #1}} & \multicolumn{1}{l}{\textbf{Sample Output #1}} \\
+    \hline
+    \begin{minipage}[t]{0.47\textwidth}
+    \ttfamily\small
+    #2
+    \end{minipage}
+    \vspace{1pt}
+    &
+    \begin{minipage}[t]{0.47\textwidth}
+    \ttfamily\small
+    #3
+    \end{minipage}
+    \vspace{1pt}
+    \\
+    \hline
+    \end{tabular}
+    \vspace{2mm}
+}
+
+%-------------------------------------------------------------------------------

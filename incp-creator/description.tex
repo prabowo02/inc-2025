@@ -1,0 +1,87 @@
+\input{tpl_inc.tex}
+\usepackage{multicol}
+
+\begin{document}
+
+\ptitle{PC}{Graph Director}
+
+You are given a simple graph consisting of $N$ vertices (numbered from $1$ to $N$) and $M$ bidirectional edges (numbered from $1$ to $M$).
+Edge $i$ connects vertices $U_i$ and $V_i$.
+You are asked to convert each edge into a directed edge.
+For each edge $i$, you can choose to direct it from $U_i$ to $V_i$ or in the opposite direction.
+
+\begin{center}
+  \includegraphics[width=10cm]{render/inc-creator-1.png}
+\end{center}
+
+The final directed graph has to satisfy the following requirements.
+For each vertex $j$, there are exactly $A_j$ different possible vertices that can be visited by a walk starting from vertex $j$.
+A walk consists of traversing \textbf{zero} or more directed edges, following the direction in the final directed graph.
+
+Direct the edges, or determine whether it is impossible to achieve.
+If there are several solutions, you can choose any of them.
+
+\psection{Input}
+The first line consists of two integers $N$ $M$ ($2 \leq N \leq 2000; 1 \leq M \leq 4000$).
+
+Each of the next $M$ lines consists of two integers $U_i$ $V_i$ ($1 \leq U_i, V_i \leq N$).
+There are no self-loops or multi-edges.
+
+The following line consists of $N$ integers $A_j$ ($1 \leq A_j \leq N$).
+
+
+\psection{Output}
+If it is impossible to direct the edges in a way that meets the requirements, output \texttt{-1}.
+
+Otherwise, output $M$ lines, each containing two integers $u$ and $v$ representing a directed edge from vertex $u$ to $v$ in your final directed graph.
+You can output the edges in any order.
+If there are several solutions, you can output any of them.
+
+\exmp{1}{
+6 7\\
+3 1\\
+1 4\\
+1 5\\
+3 2\\
+2 1\\
+3 4\\
+5 6\\
+6 1 6 6 2 1
+}{
+1 5\\
+3 2\\
+1 2\\
+5 6\\
+1 3\\
+3 4\\
+4 1
+}
+
+\textit{Explanation of Sample 1:} The illustration in the description shows both the original graph and the final directed graph of this sample.
+In the final directed graph:
+
+\begin{itemize}
+  \item If you start from vertex $1$, $3$, or $4$, you can visit all the vertices.
+  \item If you start from vertex $2$, you can visit vertex $2$.
+  \item If you start from vertex $5$, you can visit vertices $5$ and $6$.
+  \item If you start from vertex $6$, you can visit vertex $6$.
+\end{itemize}
+
+\exmp{2}{
+3 2\\
+1 2\\
+2 3\\
+2 1 3
+}{
+-1
+}
+
+\exmp{3}{
+3 1\\
+1 2\\
+2 1 1
+}{
+1 2
+}
+
+\end{document}

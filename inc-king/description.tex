@@ -1,0 +1,45 @@
+\input{tpl_inc.tex}
+
+\begin{document}
+
+\ptitle{K}{King Permutations}
+
+You are given an integer $N$ and a binary string $S$ of length $N - 1$.
+Let $p$ be a permutation of $(1, 2, \ldots, N)$.
+Count how many different $p$ such that, for all $1 \le i \le N - 1$, the following are satisfied.
+
+\begin{itemize}
+  \item If $S_i = 0$, then $|p_i - p_{i+1}| \neq 1$.
+  \item If $S_i = 1$, then $|p_i - p_{i+1}| = 1$.
+\end{itemize}
+
+Output the count modulo $998\;244\;353$.
+
+\psection{Input}
+
+The first line contains an integer $N$ ($2 \leq N \leq 100\;000$).
+The second line contains a binary string $S$ of length $N - 1$.
+
+\psection{Output}
+
+Output an integer representing the count modulo $998\;244\;353$.
+
+\exmp{1}{
+5\\
+1101
+}{
+6
+}
+
+\textit{Explanation of Sample 1:} the sequences that satisfy are $(1, 2, 3, 5, 4)$, $(3, 2, 1, 4, 5)$, $(3, 2, 1, 5, 4)$, $(3, 4, 5, 1, 2)$, $(3, 4, 5, 2, 1)$, $(5, 4, 3, 1, 2)$.
+
+\exmp{2}{
+15\\
+00000000000000
+}{
+510422599
+}
+
+\blankpage % use this if problem is only 1 page
+
+\end{document}

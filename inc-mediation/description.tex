@@ -1,0 +1,62 @@
+\input{tpl_inc.tex}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{float}
+
+\begin{document}
+
+\ptitle{J}{Mediation}
+
+You are the mayor of a tree-structured city with $N$ districts, numbered from $1$ to $N$, connected by $N - 1$ roads, numbered from $1$ to $N - 1$.
+Road $i$ connects district $U_i$ and district $V_i$ bidirectionally with weight $W_i$.
+Two districts $S_1$ and $S_2$ have been marked as \textbf{mediator districts}.
+The travel cost between district $x$ and district $y$, denoted by $d(x, y)$, is the minimum sum of weights of the roads you need to pass through.
+
+Whenever a conflict arise between any two districts, the mediator districts are required to travel to the conflicting districts.
+The \textbf{mediation cost} for two conflicting districts $u$ and $v$, denoted by $M(u, v)$, is the maximum travel cost of the mediator districts to the nearest conflicting district.
+Formally, $M(x, y)$ can be calculated as follows.
+
+\[M(u, v) = \max(\min(d(u, S_1), d(v, S_1)), \min(d(u, S_2), d(v, S_2)))\]
+
+Calculate the sum of mediation cost $M(u, v)$ over all $1 \leq u < v \leq N$.
+
+
+\psection{Input}
+The first line contains three integers: $N$, $S_1$, and $S_2$ ($2 \le N \le 200\,000$; $1 \leq S_1 < S_2 \leq N$).
+
+The next $N-1$ lines contains integers $U_i$, $V_i$, and $W_i$ ($1 \le U_i < V_i \le N$; $1 \leq W_i \leq 100$) describing an edge.
+
+
+\psection{Output}
+Output the sum of mediation cost in a single line.
+
+\exmp{1}{
+6 2 4\\
+1 4 5\\
+3 4 1\\
+4 5 1\\
+2 5 2\\
+2 6 2
+}{
+35
+}
+
+\textit{Explanation of Sample 1:} The city is illustrated as follows.
+
+\includegraphics[width=0.3\textwidth]{render/image.png}
+
+The values of $M(u, v)$ over all $1 \leq u < v \leq N$ are presented as follows.
+
+\begin{table}[H]
+\begin{tabular}{l|llllll}
+\textbf{u \textbackslash{} v} & \textbf{1}               & \textbf{2}               & \textbf{3}               & \textbf{4}               & \textbf{5}               & \textbf{6} \\ \hline
+\textbf{1}                  & \cellcolor[HTML]{EFEFEF} & 3                        & 4                        & 3                        & 2                        & 5          \\
+\textbf{2}                  & \cellcolor[HTML]{EFEFEF} & \cellcolor[HTML]{EFEFEF} & 1                        & 0                        & 1                        & 3          \\
+\textbf{3}                  & \cellcolor[HTML]{EFEFEF} & \cellcolor[HTML]{EFEFEF} & \cellcolor[HTML]{EFEFEF} & 3                        & 2                        & 2          \\
+\textbf{4}                  & \cellcolor[HTML]{EFEFEF} & \cellcolor[HTML]{EFEFEF} & \cellcolor[HTML]{EFEFEF} & \cellcolor[HTML]{EFEFEF} & 2                        & 2          \\
+\textbf{5}                  & \cellcolor[HTML]{EFEFEF} & \cellcolor[HTML]{EFEFEF} & \cellcolor[HTML]{EFEFEF} & \cellcolor[HTML]{EFEFEF} & \cellcolor[HTML]{EFEFEF} & 2         
+\end{tabular}
+\end{table}
+
+The sum of all $M(u, v)$ is 35.
+
+\end{document}

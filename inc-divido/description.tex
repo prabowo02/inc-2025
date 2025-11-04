@@ -1,0 +1,60 @@
+\input{tpl_inc.tex}
+
+\begin{document}
+
+\ptitle{D}{Divido Travel}
+
+There is a connected weighted graph with $N$ vertices, numbered from $1$ to $N$, and $M$ edges, numbered from $1$ to $M$.
+Edge $i$ connects vertex $U_i$ and vertex $V_i$ bidirectionally with weight $W_i$.
+
+You want to travel from vertex $1$ to vertex $2$, then from vertex $2$ to vertex $3$.
+You are allowed to visit any vertex or any edge more than once.
+The cost of your entire travel is the sum of the weights you passed through.
+
+There is, however, a catch, in which every time you pass through an edge, its weight will be halved then rounded up to the nearest integer.
+Formally, if its weight is previously $w$, then it will change into $\lceil \frac{w}{2} \rceil$ after you pass through it.
+
+Calculate the minimum cost of your entire travel.
+
+\psection{Input}
+
+The first line contains an integer $N$ and $M$ ($3 \leq N \leq 100\;000$; $N - 1 \leq M \leq 200\;000$).
+Each of the next $M$ lines contains $U_i$, $V_i$, and $W_i$ ($1 \leq U_i < V_i \leq N$; $1 \leq W_i \leq 10^9$) describing an edge.
+The graph you are given contains no multi-edges.
+
+\psection{Output}
+
+Output the cost of your entire travel in a single line.
+
+\exmp{1}{
+6 7\\
+5 6 1\\
+4 5 1\\
+3 4 1\\
+1 4 5\\
+2 5 2\\
+3 6 1\\
+2 6 2
+}{
+11
+}
+
+\textit{Explanation of Sample 1:} The graph can be illustrated as follows.
+
+\includegraphics[width=0.3\textwidth]{render/image.png}
+
+You can travel from vertex $1$ to vertex $2$ by traversing the vertices $1 \to 4 \to 5 \to 2$. The weights of the traversed edges are changed into $3$, $1$, and $1$ respectively.
+
+Then, you travel from vertex $2$ to vertex $3$ by traversing the vertices $2 \to 5 \to 6 \to 3$. The cost of the entire travel is $5+1+2+1+1+1 = 11$.
+
+\exmp{2}{
+3 2\\
+1 2 265\\
+1 3 265
+}{
+663
+}
+
+% \blankpage % use this if problem is only 1 page
+
+\end{document}

@@ -1,0 +1,55 @@
+\input{tpl_inc.tex}
+
+\begin{document}
+
+\ptitle{C}{Polynomially Constructed}
+
+You are given an integer $N$ and an array of \textbf{integers} $[y_1, y_2, \ldots, y_N]$ of size $N$.
+
+You want to construct the following:
+
+\begin{itemize}
+  \item a polynomial $P(x) = c_0 x^0 + c_1 x^1 + \ldots + c_d x^d$ where the coefficients are \textbf{real numbers}, and for some \textit{degree} $d$;
+  \item an array of \textbf{real numbers} $[x_1, x_2, \ldots, x_N]$ of size $N$ such that $x_1 < x_2 < \ldots < x_N$;
+\end{itemize}
+
+and the construction satisfies $P(x_1) = y_1$, $P(x_2) = y_2$, $\ldots$, $P(x_N) = y_N$.
+
+It can be proven that such a construction always exists.
+Your task is to find the minimum polynomial degree $d$ that you can construct.
+
+\psection{Input}
+
+The first line contains an integer $N$ ($1 \leq N \leq 100\;000$).
+The second line contains $N$ integers representing $y_i$ ($-10^9 \leq y_i \leq 10^9$).
+
+\psection{Output}
+
+Output the minimum degree $d$ in a single line.
+
+\exmp{1}{
+5\\
+2 -1 1 1 0
+}{
+3
+}
+
+\textit{Explanation of Sample 1:} We can construct a polynomial $\frac{29}{3} x^0 + 8x^1 + 0 x^2 - \frac{2}{3} x^3$, and array \\$[-2.81273..., -2, -1.24361..., 3.86937..., 3.91423...]$.
+
+\exmp{2}{
+5\\
+1 0 0 0 1
+}{
+4
+}
+
+\exmp{3}{
+3\\
+0 0 0
+}{
+0
+}
+
+\blankpage % use this if problem is only 1 page
+
+\end{document}

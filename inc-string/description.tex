@@ -1,0 +1,58 @@
+\input{tpl_inc.tex}
+
+\begin{document}
+
+\ptitle{K}{Palindrome Partition}
+
+A palindrome is a string that reads the same forwards as backwards. 
+For example, \texttt{radar}, \texttt{noon}, and \texttt{a} are palindromes, while \texttt{bathtub}, \texttt{thought}, and \texttt{is} are not.
+
+Given a string $S$ consisting only of lowercase English letters. 
+You can rearrange the letters in $S$ in any order you like. 
+Your task is to split $S$ after rearrangement into as few palindromic substrings as possible.
+
+\psection{Input}
+
+The first and only line contains the string $S$ ($1 \le |S| \le 200\;000$) containing lowercase English letters.
+
+\psection{Output}
+
+On the first line, print the minimum number $k$ of palindrome substrings.
+
+On the next $k$ lines, print the palindromes that the string $S$ (after rearrangement) can be split into.
+If there are multiple ways to split, you may output any of them.
+
+\exmp{1}{
+larcevalecer
+}{
+2\\
+level\\
+racecar\\
+}
+
+\textit{Explanation of Sample 1:} We can rearrange the input string into \texttt{levelracecar}, then split the string into two palindromes: \texttt{level} and \texttt{racecar}. No rearrangement can produce a single palindrome, so the minimum number of palindromes is $2$.
+
+\exmp{2}{
+abab\\
+}{
+1\\
+baab
+}
+
+\exmp{3}{
+indonesianationalcontest\\
+}{
+8\\
+i\\
+incni\\
+stats\\
+nnn\\
+ala\\
+odo\\
+t\\
+eoe
+}
+
+\blankpage % use this if problem is only 1 page
+
+\end{document}

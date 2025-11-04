@@ -1,0 +1,59 @@
+\input{tpl_inc.tex}
+
+\begin{document}
+
+\ptitle{PD}{ICPC Provincial}
+
+The University of INC (UOI) is participating in an ICPC Provincial Contest, a qualifier contest for the ICPC Regional Contest.
+UOI has $3N$ students (numbered from $1$ to $3N$) who are eager to participate in the contest.
+There will be $N$ teams, each consisting of exactly $3$ students.
+Each student can only be assigned to only one team.
+
+As the coach of UOI, you know that student $i$ has a skill rating of $A_i$.
+You define the strength of a team as the median of the skill ratings of its members.
+
+In order to increase the chance for all UOI teams to qualify for the ICPC Regional Contest, you want to arrange the teams so that the strength of the weakest team is maximized.
+Determine the maximum strength of the weakest team.
+
+
+\psection{Input}
+The first line consists of an integer $N$ ($1 \leq N \leq 100\,000$).
+
+The second line consists of $3N$ integers $A_i$ ($0 \leq A_i \leq 4000$).
+
+
+\psection{Output}
+Output a single integer representing the maximum strength of the weakest team.
+
+
+\exmp{1}{
+2\\
+1500 1700 1800 2300 2500 2600
+}{
+1800
+}
+
+\textit{Explanation of Sample 1:} Team $1$ consists of students $1$, $3$, and $5$, while team $2$ consists of students $2$, $4$, and $6$.
+The strength of team $1$ and $2$ are $1800$ and $2300$, respectively.
+Other arrangements exist, but none allow the weakest team to have a strength higher than $1800$.
+
+
+\exmp{2}{
+1\\
+2800 2100 3000
+}{
+2800
+}
+
+\textit{Explanation of Sample 2:} There is only one team with the strength of $2800$.
+
+\exmp{3}{
+3\\
+4000 0 4000 0 4000 0 4000 0 4000
+}{
+0
+}
+
+\blankpage
+
+\end{document}
